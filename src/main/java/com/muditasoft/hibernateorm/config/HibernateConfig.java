@@ -13,8 +13,9 @@ import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Environment;
 
-import com.muditasoft.hibernateorm._01onetoone.unidirectional.Instructor;
-import com.muditasoft.hibernateorm._01onetoone.unidirectional.InstructorDetails;
+import com.muditasoft.hibernateorm._01onetoone.bidirectional.Instructor;
+import com.muditasoft.hibernateorm._01onetoone.bidirectional.InstructorDetails;
+
 
 /**
  * @author tutku ince
