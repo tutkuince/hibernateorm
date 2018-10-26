@@ -21,20 +21,22 @@ public class DeleteInstructorDetailsApp {
 			Long id = 1L;
 			InstructorDetails instructorDetails = session.get(InstructorDetails.class, id);
 
-			// Print the instructor
-			System.out.println("Instructor: " + instructorDetails.getInstructor());
+			if (instructorDetails != null) {
+				// Print the instructor
+				System.out.println("Instructor: " + instructorDetails.getInstructor());
 
-			// Print the instructor details
-			System.out.println("Instructor Details: " + instructorDetails);
+				// Print the instructor details
+				System.out.println("Instructor Details: " + instructorDetails);
 
-			// now let's delete the instructor details
-			System.out.println("Deleting instructor details ==>>");
+				// now let's delete the instructor details
+				System.out.println("Deleting instructor details ==>>");
 
-			// remove the associated object reference break bi-directional link
-			instructorDetails.getInstructor().setInstructorDetails(null);
+				// remove the associated object reference break bi-directional link
+				instructorDetails.getInstructor().setInstructorDetails(null);
 
-			// delete instructor details
-			session.delete(instructorDetails);
+				// delete instructor details
+				session.delete(instructorDetails);
+			}
 
 			// commit transaction
 			session.getTransaction().commit();
