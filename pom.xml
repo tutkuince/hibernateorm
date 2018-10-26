@@ -21,13 +21,23 @@
 
 		<!-- Hibernate Version -->
 		<org.hibernate-version>5.3.6.Final</org.hibernate-version>
+		<mysql-connector-java-version>8.0.13</mysql-connector-java-version>
 	</properties>
 
 	<dependencies>
+		<!-- Hibernate -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
 			<version>${org.hibernate-version}</version>
 		</dependency>
+
+		<!-- MySQL Connector -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>${mysql-connector-java-version}</version>
+		</dependency>
+
 	</dependencies>
 </project>
