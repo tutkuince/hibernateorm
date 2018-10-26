@@ -21,7 +21,15 @@
 
 		<!-- Hibernate Version -->
 		<org.hibernate-version>5.3.6.Final</org.hibernate-version>
+		
+		<!-- mySQL Connector -->
 		<mysql-connector-java-version>8.0.13</mysql-connector-java-version>
+		
+		<!-- JUnit Version -->
+		<org.junit.jupiter-version>5.3.1</org.junit.jupiter-version>
+		
+		<!-- JAXB Version -->
+		<jaxb-api-version>2.3.1</jaxb-api-version>
 	</properties>
 
 	<dependencies>
@@ -31,6 +39,12 @@
 			<artifactId>hibernate-core</artifactId>
 			<version>${org.hibernate-version}</version>
 		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-c3p0</artifactId>
+			<version>${org.hibernate-version}</version>
+		</dependency>
+
 
 		<!-- MySQL Connector -->
 		<dependency>
@@ -38,6 +52,28 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<version>${mysql-connector-java-version}</version>
 		</dependency>
+
+		<!-- JUnit -->
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-api</artifactId>
+			<version>${org.junit.jupiter-version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-engine</artifactId>
+			<version>${org.junit.jupiter-version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- JAXB -->
+		<dependency>
+			<groupId>javax.xml.bind</groupId>
+			<artifactId>jaxb-api</artifactId>
+			<version>${jaxb-api-version}</version>
+		</dependency>
+
 
 	</dependencies>
 </project>
