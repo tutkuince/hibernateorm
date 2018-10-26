@@ -30,7 +30,8 @@ public class InstructorDetails {
 	@Column(name = "hobby")
 	private String hobby;
 
-	@OneToOne(mappedBy = "instructorDetails", cascade = CascadeType.ALL) // Bi-directional
+	@OneToOne(mappedBy = "instructorDetails", cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST,
+			CascadeType.REFRESH }) // Bi-directional
 	private Instructor instructor;
 
 	public InstructorDetails() {
