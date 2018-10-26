@@ -18,16 +18,18 @@ public class GetInstructorDetailsDemo {
 		try {
 			// start a transaction
 			session.beginTransaction();
-			
-			// get the instructor details 
-			Long id = 1L;
+
+			// get the instructor details
+			Long id = 2L;
 			InstructorDetails instructorDetails = session.get(InstructorDetails.class, id);
-			
-			// print the instructor details
-			System.out.println("Instructor Details: " + instructorDetails);
-			
-			// print the associated instructor
-			System.out.println("Instructor: " + instructorDetails.getInstructor());
+
+			if (instructorDetails != null) {
+				// print the instructor details
+				System.out.println("Instructor Details: " + instructorDetails);
+
+				// print the associated instructor
+				System.out.println("Instructor: " + instructorDetails.getInstructor());
+			}
 
 			// commit transaction
 			session.getTransaction().commit();
