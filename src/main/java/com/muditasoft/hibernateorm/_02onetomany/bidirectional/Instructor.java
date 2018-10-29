@@ -1,5 +1,8 @@
 package com.muditasoft.hibernateorm._02onetomany.bidirectional;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -7,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -36,6 +40,10 @@ public class Instructor {
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "instructor_details_id")
 	private InstructorDetails instructorDetails;
+
+	@OneToMany(mappedBy = "instructor", cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST,
+			CascadeType.REFRESH })
+	private List<Course> courses;
 
 	public Instructor() {
 		// TODO Auto-generated constructor stub
@@ -86,4 +94,26 @@ public class Instructor {
 	public void setInstructorDetails(InstructorDetails instructorDetails) {
 		this.instructorDetails = instructorDetails;
 	}
+
+	public List<Course> getCourses() {
+		return courses;
+	}
+
+	public void setCourses(List<Course> courses) {
+		this.courses = courses;
+	}
+
+	@Override
+	public String toString() {
+		return "Instructor [id=" + id + ", name=" + name + ", surname=" + surname + ", email=" + email + "]";
+	}
+
+	public void addCourse(Course course) {
+		if (courses == null)
+			courses = new ArrayList<>();
+
+		courses.add(course);
+		course.setInstructor(this);
+	}
+
 }
