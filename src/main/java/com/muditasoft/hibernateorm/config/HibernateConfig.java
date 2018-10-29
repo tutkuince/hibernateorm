@@ -13,9 +13,9 @@ import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Environment;
 
-import com.muditasoft.hibernateorm._02onetomany.bidirectional.Course;
-import com.muditasoft.hibernateorm._02onetomany.bidirectional.Instructor;
-import com.muditasoft.hibernateorm._02onetomany.bidirectional.InstructorDetails;
+import com.muditasoft.hibernateorm._04fetchtypes.eagerloading.Course;
+import com.muditasoft.hibernateorm._04fetchtypes.eagerloading.Instructor;
+import com.muditasoft.hibernateorm._04fetchtypes.eagerloading.InstructorDetails;
 
 /**
  * @author tutku ince
