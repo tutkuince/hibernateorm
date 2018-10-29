@@ -13,9 +13,8 @@ import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Environment;
 
-import com.muditasoft.hibernateorm._04fetchtypes.eagerloading.Course;
-import com.muditasoft.hibernateorm._04fetchtypes.eagerloading.Instructor;
-import com.muditasoft.hibernateorm._04fetchtypes.eagerloading.InstructorDetails;
+import com.muditasoft.hibernateorm._02onetomany.unidirectional.*;
+
 
 /**
  * @author tutku ince
@@ -86,7 +85,7 @@ public class HibernateConfig {
 
 			// Create MetaDataSource
 			MetadataSources metadataSources = new MetadataSources(registry).addAnnotatedClass(Instructor.class)
-					.addAnnotatedClass(InstructorDetails.class).addAnnotatedClass(Course.class);
+					.addAnnotatedClass(InstructorDetails.class).addAnnotatedClass(Course.class).addAnnotatedClass(Review.class);
 
 			// Create MetaData
 			Metadata metaData = metadataSources.buildMetadata();
