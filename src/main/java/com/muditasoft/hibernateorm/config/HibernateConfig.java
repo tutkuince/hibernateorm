@@ -13,7 +13,9 @@ import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Environment;
 
-import com.muditasoft.hibernateorm._03manytomany.*;
+import com.muditasoft.hibernateorm._05crud.model.Department;
+import com.muditasoft.hibernateorm._05crud.model.Employee;
+import com.muditasoft.hibernateorm._05crud.model.EmployeeDetails;
 
 
 /**
@@ -84,8 +86,10 @@ public class HibernateConfig {
 			registry = registryBuilder.build();
 
 			// Create MetaDataSource
-			MetadataSources metadataSources = new MetadataSources(registry).addAnnotatedClass(Instructor.class)
-					.addAnnotatedClass(InstructorDetails.class).addAnnotatedClass(Course.class).addAnnotatedClass(Review.class).addAnnotatedClass(Student.class);
+			MetadataSources metadataSources = new MetadataSources(registry)
+					.addAnnotatedClass(Employee.class)
+					.addAnnotatedClass(EmployeeDetails.class)
+					.addAnnotatedClass(Department.class);
 
 			// Create MetaData
 			Metadata metaData = metadataSources.buildMetadata();
