@@ -8,6 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -33,6 +34,10 @@ public class Employee {
 	@OneToMany(cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH })
 	@JoinColumn(name = "department_id")
 	private Department department;
+
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "employeeDetails_id")
+	private EmployeeDetails employeeDetails;
 
 	public Employee() {
 		// TODO Auto-generated constructor stub
@@ -65,6 +70,22 @@ public class Employee {
 
 	public void setSurname(String surname) {
 		this.surname = surname;
+	}
+
+	public Department getDepartment() {
+		return department;
+	}
+
+	public void setDepartment(Department department) {
+		this.department = department;
+	}
+
+	public EmployeeDetails getEmployeeDetails() {
+		return employeeDetails;
+	}
+
+	public void setEmployeeDetails(EmployeeDetails employeeDetails) {
+		this.employeeDetails = employeeDetails;
 	}
 
 	@Override
