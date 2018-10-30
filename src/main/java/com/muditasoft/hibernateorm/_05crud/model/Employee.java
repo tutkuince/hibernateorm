@@ -1,10 +1,13 @@
 package com.muditasoft.hibernateorm._05crud.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -26,6 +29,10 @@ public class Employee {
 
 	@Column(length = 55)
 	private String surname;
+
+	@OneToMany(cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH })
+	@JoinColumn(name = "department_id")
+	private Department department;
 
 	public Employee() {
 		// TODO Auto-generated constructor stub
