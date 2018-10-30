@@ -1,10 +1,12 @@
 package com.muditasoft.hibernateorm._05crud.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -26,6 +28,10 @@ public class EmployeeDetails {
 
 	@Column(length = 55, nullable = false, unique = true)
 	private String mobilePhone;
+
+	@OneToOne(mappedBy = "employeeDetails", cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST,
+			CascadeType.REFRESH })
+	private Employee employee;
 
 	public EmployeeDetails() {
 		// TODO Auto-generated constructor stub
@@ -58,6 +64,14 @@ public class EmployeeDetails {
 
 	public void setMobilePhone(String mobilePhone) {
 		this.mobilePhone = mobilePhone;
+	}
+
+	public Employee getEmployee() {
+		return employee;
+	}
+
+	public void setEmployee(Employee employee) {
+		this.employee = employee;
 	}
 
 	@Override
